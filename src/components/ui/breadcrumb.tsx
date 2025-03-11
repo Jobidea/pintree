@@ -6,13 +6,13 @@ import Link from "next/link"
 
 import { cn } from "@/lib/utils"
 
-const Breadcrumb = React.forwardRef<
+const BreadcrumbRoot = React.forwardRef<
   HTMLElement,
   React.ComponentPropsWithoutRef<"nav"> & {
     separator?: React.ReactNode
   }
 >(({ ...props }, ref) => <nav ref={ref} aria-label="breadcrumb" {...props} />)
-Breadcrumb.displayName = "Breadcrumb"
+BreadcrumbRoot.displayName = "BreadcrumbRoot"
 
 const BreadcrumbList = React.forwardRef<
   HTMLOListElement,
@@ -106,13 +106,13 @@ const BreadcrumbEllipsis = ({
 )
 BreadcrumbEllipsis.displayName = "BreadcrumbElipssis"
 
-interface BreadcrumbItem {
+interface BreadcrumbItemType {
   label: string
   href: string
 }
 
 interface BreadcrumbProps {
-  items: BreadcrumbItem[]
+  items: BreadcrumbItemType[]
 }
 
 export function Breadcrumb({ items }: BreadcrumbProps) {
@@ -143,7 +143,7 @@ export function Breadcrumb({ items }: BreadcrumbProps) {
 }
 
 export {
-  Breadcrumb,
+  BreadcrumbRoot,
   BreadcrumbList,
   BreadcrumbItem,
   BreadcrumbLink,
